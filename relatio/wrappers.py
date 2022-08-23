@@ -16,6 +16,7 @@ from typing import List, Optional
 
 import numpy as np
 import pandas as pd
+from sklearn import metrics
 
 from .clustering import (
     USE,
@@ -361,6 +362,14 @@ def build_narrative_model(
                         verbose=verbose,
                         random_state=random_state,
                     )
+
+                    pred = kmeans.predict(vecs)
+                    score = metrics.silhouette_score(vecs, pred)
+                    print("----------")
+                    print(f"SIL SCORE: {score}")
+                    print("----------")
+
+
 
                 if output_path is not None:
                     with open(output_path + "kmeans_%s_%s.pk" % (i, num), "wb") as f:
