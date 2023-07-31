@@ -1,4 +1,6 @@
-# relatio
+This Relatio fork adds printing sillhoutte score when performing k-means clustering
+
+# Relatio
 
 A Python package to extract narrative statements from text. 
 
